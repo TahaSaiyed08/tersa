@@ -1,0 +1,17 @@
+# How Tersa handles missing values and failures without exceptions.
+fn parse_port(s: str):
+    n = s.parse_int()
+    if n == none: return err("'{s}' is not a number")
+    if n < 1 or n > 65535: return err("{n} is out of range")
+    ok(n)
+
+fn config_port(env_value: str?):
+    raw = env_value ?? "8080"
+    port = parse_port(raw)?
+    ok(port)
+
+for v in [none, "3000", "abc", "70000"]:
+    print("{v} -> {config_port(v)}")
+
+first_word = "hello world".split().first() ?? ""
+print(first_word.upper())

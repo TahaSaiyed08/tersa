@@ -1,0 +1,49 @@
+{
+  "name": "tersa",
+  "version": "0.1.0",
+  "description": "A compact, type-safe programming language designed for AI-written code. Compiles to Python.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepublishOnly": "npm run build && node --test test/*.test.mjs",
+    "bench": "node benchmarks/tokens.mjs",
+    "bench:bugs": "node benchmarks/bugs.mjs"
+  },
+  "keywords": [
+    "programming-language",
+    "compiler",
+    "llm",
+    "ai",
+    "python",
+    "transpiler",
+    "type-safe"
+  ],
+  "author": "Taha Saiyed",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "gpt-tokenizer": "^4.0.0",
+    "typescript": "^5.9.3"
+  },
+  "type": "module",
+  "bin": {
+    "tersa": "dist/cli.js"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "llms.txt",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smta08/tersa.git"
+  }
+}

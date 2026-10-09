@@ -1,0 +1,4 @@
+fn describe(discount: float?) -> str:
+    if discount: return "discount {discount}"
+    "no discount"
+print(describe(0.0))

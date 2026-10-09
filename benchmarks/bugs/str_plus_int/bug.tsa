@@ -1,0 +1,2 @@
+fn label(count: int) -> str = "items: " + count
+print(label(3))

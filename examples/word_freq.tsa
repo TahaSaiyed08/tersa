@@ -1,0 +1,11 @@
+text = """the quick brown fox jumps over the lazy dog
+the dog barks and the fox runs away quick"""
+
+var counts = {}
+for word in text.lower().split():
+    counts[word] = counts.get(word) ?? 0 + 1
+
+top = counts.items().sort_by(kv => (-kv.1, kv.0))[:3]
+for word, n in top:
+    print("{word}: {n}")
+print("unique words: {len(counts)}")

@@ -1,0 +1,7 @@
+DEFAULT_LIMITS = {"cpu": 2, "ram": 4}
+fn for_premium() -> {str: int}:
+    limits = DEFAULT_LIMITS
+    limits["cpu"] = 8
+    limits
+_ = for_premium()
+print(DEFAULT_LIMITS)

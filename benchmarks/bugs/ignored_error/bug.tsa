@@ -1,0 +1,6 @@
+fn load_port(text: str) -> int?:
+    data = parse_json(text) ?? none
+    if data == none: return none
+    parse_int(str(data["port"]))
+port = load_port(r"""{"host": "x"}""")
+print("listening on {port + 1}")

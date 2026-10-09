@@ -1,0 +1,2 @@
+fn transfer(amount: float, to_account: str) -> str = "sent {amount:.2f} to {to_account}"
+print(transfer("ACC-42", 100.0))

@@ -1,0 +1,2 @@
+fn total(fields: [str]) -> int = fields.map(f => int(f)).sum()
+print(total(["1", "2", "three"]))

@@ -1,0 +1,5 @@
+Circle(r=1.0): area=3.14 perimeter=6.28
+Rect(w=3.0, h=4.0): area=12.00 perimeter=14.00
+Triangle(a=3.0, b=4.0, c=5.0): area=6.00 perimeter=12.00
+largest: Rect(w=3.0, h=4.0)
+total area: 21.14

@@ -1,0 +1,22 @@
+type Account(id: int, owner: str, var balance: int = 0)
+
+fn deposit(a: Account, amount: int) -> !str:
+    if amount <= 0: return err("deposit must be positive")
+    a.balance += amount
+
+fn withdraw(a: Account, amount: int) -> !str:
+    if amount <= 0: return err("withdrawal must be positive")
+    if amount > a.balance: return err("insufficient funds: balance {a.balance}, requested {amount}")
+    a.balance -= amount
+
+fn transfer(src: Account, dst: Account, amount: int) -> !str:
+    withdraw(src, amount)?
+    deposit(dst, amount)?
+
+alice = Account(1, "alice", 100)
+bob = Account(2, "bob")
+for amount in [30, 200, -5]:
+    match transfer(alice, bob, amount):
+        ok(_): print("transferred {amount}")
+        err(e): print("transfer of {amount} failed: {e}")
+print("alice: {alice.balance}, bob: {bob.balance}")

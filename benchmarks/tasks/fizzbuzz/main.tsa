@@ -1,0 +1,8 @@
+fn fizzbuzz(n: int):
+    if n % 15 == 0: "FizzBuzz"
+    elif n % 3 == 0: "Fizz"
+    elif n % 5 == 0: "Buzz"
+    else: str(n)
+
+for i in 1..=15:
+    print(fizzbuzz(i))

@@ -1,0 +1,6 @@
+type Payment = Card(last4: str) | Cash | Voucher(code: str)
+fn fee(p: Payment) -> float:
+    match p:
+        Card(_): 0.3
+        Cash: 0.0
+print(fee(Voucher("X1")))

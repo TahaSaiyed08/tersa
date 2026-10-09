@@ -1,0 +1,5 @@
+circle: area=3.14 perimeter=6.28
+rect: area=12.00 perimeter=14.00
+triangle: area=6.00 perimeter=12.00
+largest: rect
+total area: 21.14

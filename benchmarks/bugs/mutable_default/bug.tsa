@@ -1,0 +1,5 @@
+fn add_tag(tag: str, var tags: [str] = []) -> [str]:
+    tags.push(tag)
+    tags
+print(add_tag("a"))
+print(add_tag("b"))

@@ -1,0 +1,4 @@
+fn clean(name: str) -> str:
+    name.trim()
+    name
+print(clean("  bob  "))

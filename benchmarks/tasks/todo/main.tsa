@@ -1,0 +1,31 @@
+type Task(id: int, title: str, var done: bool = false, tags: [str] = [])
+
+var tasks: [Task] = []
+var next_id = 1
+
+fn add(title: str, tags: [str] = []):
+    t = Task(next_id, title, tags=tags)
+    next_id += 1
+    tasks.push(t)
+    t
+
+fn complete(id: int) -> !str:
+    t = tasks.find(t => t.id == id)
+    if t == none: return err("no task #{id}")
+    if t.done: return err("task #{id} is already done")
+    t.done = true
+
+add("write spec", ["docs"])
+add("build compiler", ["code"])
+add("publish to npm", ["release", "code"])
+complete(2)!
+for id in [2, 9]:
+    match complete(id):
+        ok(_): print("ok")
+        err(e): print("error: {e}")
+
+for t in tasks:
+    mark = if t.done: "x" else: " "
+    print("[{mark}] #{t.id} {t.title} ({t.tags.join(", ")})")
+code_left = tasks.filter(t => not t.done and "code" in t.tags).len()
+print("{tasks.count(t => t.done)}/{len(tasks)} done, {code_left} code task(s) left")

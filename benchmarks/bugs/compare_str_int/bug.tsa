@@ -1,0 +1,2 @@
+fn is_adult(age: str) -> bool = age >= 18
+print(is_adult("20"))

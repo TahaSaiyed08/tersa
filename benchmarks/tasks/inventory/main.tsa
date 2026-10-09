@@ -1,0 +1,21 @@
+type Item(name: str, var qty: int, min_qty: int, price: float)
+
+var stock = {}
+for it in [Item("apple", 50, 20, 0.5), Item("bread", 5, 10, 2.25), Item("milk", 8, 12, 1.2), Item("rice", 30, 5, 3.0)]:
+    stock[it.name] = it
+
+fn sell(name: str, n: int) -> !str:
+    item = stock.get(name)
+    if item == none: return err("unknown item {name}")
+    if item.qty < n: return err("only {item.qty} {name} left")
+    item.qty -= n
+
+for name, n in [("apple", 35), ("milk", 10), ("tea", 1), ("bread", 2)]:
+    match sell(name, n):
+        ok(_): print("sold {n} {name}")
+        err(e): print("cannot sell: {e}")
+
+low = stock.values().filter(i => i.qty < i.min_qty).sort_by(i => i.qty)
+print("restock: {low.map(i => i.name).join(", ")}")
+value = stock.values().map(i => i.qty * i.price).sum()
+print("stock value: {value:.2f}")

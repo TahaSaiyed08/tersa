@@ -1,0 +1,8 @@
+users = {1: "alice"}
+
+fn shout(uid: int) -> str:
+    name = users.get(uid)
+    name.upper()
+
+print(shout(1))
+print(shout(2))

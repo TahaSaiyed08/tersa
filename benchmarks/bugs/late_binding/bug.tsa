@@ -1,0 +1,4 @@
+var handlers: [fn() -> int] = []
+for i in 0..3:
+    handlers.push(() => i)
+print([h() for h in handlers])

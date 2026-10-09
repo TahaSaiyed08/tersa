@@ -1,0 +1,6 @@
+sold 35 apple
+cannot sell: only 8 milk left
+cannot sell: unknown item tea
+sold 2 bread
+restock: bread, milk, apple
+stock value: 113.85

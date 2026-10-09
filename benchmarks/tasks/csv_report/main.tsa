@@ -1,0 +1,34 @@
+type Sale(region: str, product: str, units: int, price: float)
+
+fn parse_line(line: str, n: int):
+    cols = line.split(",")
+    if len(cols) != 4: return err("line {n}: expected 4 columns, got {len(cols)}")
+    units = cols[2].trim().parse_int()
+    price = cols[3].trim().parse_float()
+    if units == none: return err("line {n}: bad units '{cols[2]}'")
+    if price == none: return err("line {n}: bad price '{cols[3]}'")
+    ok(Sale(cols[0].trim(), cols[1].trim(), units, price))
+
+data = """region,product,units,price
+west,widget,10,2.50
+east,gadget,3,10.00
+west,gadget,oops,10.00
+east,widget,7,2.50
+north,widget,1
+west,widget,5,2.50"""
+
+var sales = []
+var errors = []
+for i, line in data.lines()[1:].enumerate():
+    match parse_line(line, i + 2):
+        ok(s): sales.push(s)
+        err(e): errors.push(e)
+
+by_region = sales.group_by(s => s.region)
+for region in by_region.keys().sort():
+    rows = by_region[region]
+    revenue = rows.map(s => s.units * s.price).sum()
+    print("{region}: {len(rows)} sales, revenue {revenue:.2f}")
+print("skipped {len(errors)} bad lines:")
+for e in errors:
+    print("  {e}")

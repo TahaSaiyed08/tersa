@@ -1,0 +1,37 @@
+type Tree[T] = Leaf | Node(left: Tree[T], value: T, right: Tree[T])
+
+fn insert[T: ord](t: Tree[T], v: T) -> Tree[T]:
+    match t:
+        Leaf: Node(Leaf, v, Leaf)
+        Node(l, x, r):
+            if v < x: Node(insert(l, v), x, r)
+            elif v > x: Node(l, x, insert(r, v))
+            else: t
+
+fn to_list[T](t: Tree[T]) -> [T]:
+    match t:
+        Leaf: []
+        Node(l, x, r): to_list(l) + [x] + to_list(r)
+
+fn height[T](t: Tree[T]) -> int:
+    match t:
+        Leaf: 0
+        Node(l, _, r): 1 + max(height(l), height(r))
+
+fn contains[T: ord](t: Tree[T], v: T) -> bool:
+    match t:
+        Leaf: false
+        Node(l, x, r):
+            if v == x: true
+            elif v < x: contains(l, v)
+            else: contains(r, v)
+
+var t: Tree[int] = Leaf
+for v in [50, 30, 70, 20, 40, 60, 80, 30]:
+    t = insert(t, v)
+print(to_list(t))
+print("height: {height(t)}, has 60: {contains(t, 60)}, has 65: {contains(t, 65)}")
+var words: Tree[str] = Leaf
+for w in "pear apple fig".split():
+    words = insert(words, w)
+print(to_list(words))

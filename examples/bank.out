@@ -1,0 +1,4 @@
+transferred 30
+transfer of 200 failed: insufficient funds: balance 70, requested 200
+transfer of -5 failed: withdrawal must be positive
+alice: 70, bob: 30

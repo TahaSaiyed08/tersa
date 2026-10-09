@@ -1,0 +1,5 @@
+east: 2 sales, revenue 47.50
+west: 2 sales, revenue 37.50
+skipped 2 bad lines:
+  line 4: bad units 'oops'
+  line 6: expected 4 columns, got 3
