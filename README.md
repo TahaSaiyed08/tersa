@@ -42,7 +42,7 @@ total area: 9.14
 </table>
 
 > [!TIP]
-> Every section below that starts with ▶ is collapsible. Click it to expand.
+> Sections with a ▸ arrow are collapsible. Click a title to expand it.
 
 ---
 
@@ -117,7 +117,7 @@ Hello, world!
 ```
 
 <details>
-<summary><b>▶ All commands</b></summary>
+<summary><b>All commands</b></summary>
 
 <br>
 
@@ -136,7 +136,7 @@ Set `TERSA_PYTHON` to choose a specific Python interpreter.
 </details>
 
 <details>
-<summary><b>▶ Install from source instead</b></summary>
+<summary><b>Install from source instead</b></summary>
 
 <br>
 
@@ -157,7 +157,7 @@ node dist/cli.js run examples/hello.tsa
 Each block below is a complete program you can save as a `.tsa` file and run.
 
 <details open>
-<summary><b>▶ 1. Variables: immutable unless you say <code>var</code></b></summary>
+<summary><b>1. Variables: immutable unless you say <code>var</code></b></summary>
 
 <br>
 
@@ -175,7 +175,7 @@ Think of `var` like writing in pencil instead of pen: you only get an eraser whe
 </details>
 
 <details>
-<summary><b>▶ 2. Functions: the last line is the answer</b></summary>
+<summary><b>2. Functions: the last line is the answer</b></summary>
 
 <br>
 
@@ -201,7 +201,7 @@ Parameters always need types; everything else is inferred. Recursive functions d
 </details>
 
 <details>
-<summary><b>▶ 3. Records and choice types</b></summary>
+<summary><b>3. Records and choice types</b></summary>
 
 <br>
 
@@ -225,7 +225,7 @@ A choice type is like a menu: a `Shape` is exactly one of the listed options, an
 </details>
 
 <details>
-<summary><b>▶ 4. <code>match</code>: handle every case or it won't compile</b></summary>
+<summary><b>4. <code>match</code>: handle every case or it won't compile</b></summary>
 
 <br>
 
@@ -253,7 +253,7 @@ Delete any arm and the compiler names the exact case you forgot: `missing Vouche
 </details>
 
 <details>
-<summary><b>▶ 5. Optionals: <code>none</code> instead of null, and you must check it</b></summary>
+<summary><b>5. Optionals: <code>none</code> instead of null, and you must check it</b></summary>
 
 <br>
 
@@ -275,7 +275,7 @@ print(find(1)!)                    # ! means "I'm sure", and stops the program i
 </details>
 
 <details>
-<summary><b>▶ 6. Results: errors are values, not exceptions</b></summary>
+<summary><b>6. Results: errors are values, not exceptions</b></summary>
 
 <br>
 
@@ -304,7 +304,7 @@ There is no `try`/`except`. A function that can fail says so in its type, and th
 </details>
 
 <details>
-<summary><b>▶ 7. Collections</b></summary>
+<summary><b>7. Collections</b></summary>
 
 <br>
 
@@ -328,7 +328,7 @@ print(squares, lengths, unique, 3 in unique)
 </details>
 
 <details>
-<summary><b>▶ 8. Modules and Python libraries</b></summary>
+<summary><b>8. Modules and Python libraries</b></summary>
 
 <br>
 
@@ -353,7 +353,7 @@ use lib.geometry as g        # g.area(...), from lib/geometry.tsa
 </details>
 
 <details>
-<summary><b>▶ 9. Tests</b></summary>
+<summary><b>9. Tests</b></summary>
 
 <br>
 
@@ -380,7 +380,7 @@ $ tersa test math.tsa
 Tersa is a **compiler**: it translates Tersa into Python, then hands that Python to `python3`. Think of it as a strict editor checking your manuscript before it goes to the printer. Nothing reaches the printer (Python) until the editor (the type checker) is satisfied.
 
 ```mermaid
-flowchart LR
+flowchart TB
     A["📄 shapes.tsa"] --> B["① Lexer<br/><sub>src/lexer.ts</sub>"]
     B -->|"tokens"| C["② Parser<br/><sub>src/parser.ts</sub>"]
     C -->|"syntax tree"| D["③ Type checker<br/><sub>src/checker.ts</sub>"]
@@ -394,7 +394,7 @@ flowchart LR
 We'll follow the `shapes.tsa` program from the top of this page through each stage. Everything shown below is real output from the compiler.
 
 <details>
-<summary><b>▶ ① Lexer: text → tokens</b></summary>
+<summary><b>① Lexer: text → tokens</b></summary>
 
 <br>
 
@@ -421,7 +421,7 @@ It also splits string interpolation (`"{x:.2f}"`) into text and expression parts
 </details>
 
 <details>
-<summary><b>▶ ② Parser: tokens → syntax tree</b></summary>
+<summary><b>② Parser: tokens → syntax tree</b></summary>
 
 <br>
 
@@ -469,7 +469,7 @@ The parser uses **recursive descent**: one function per grammar rule (`ifExpr`, 
 </details>
 
 <details>
-<summary><b>▶ ③ Type checker: the stage that catches the bugs</b></summary>
+<summary><b>③ Type checker: the stage that catches the bugs</b></summary>
 
 <br>
 
@@ -540,7 +540,7 @@ Every error has a stable code (listed in [docs/SPEC.md](docs/SPEC.md#15-diagnost
 </details>
 
 <details>
-<summary><b>▶ ④ Code generator: checked tree → Python</b></summary>
+<summary><b>④ Code generator: checked tree → Python</b></summary>
 
 <br>
 
@@ -590,7 +590,7 @@ How each piece translates:
 </details>
 
 <details>
-<summary><b>▶ ⑤ Runtime: running the Python, reporting errors in Tersa terms</b></summary>
+<summary><b>⑤ Runtime: running the Python, reporting errors in Tersa terms</b></summary>
 
 <br>
 
@@ -622,7 +622,7 @@ No Python traceback, no generated file names: just where the problem is in the c
 Real mistakes that LLMs commonly make. The Python column is what actually happens when you run it; the Tersa column is the real compiler output.
 
 <details open>
-<summary><b>▶ Using a value that might be missing</b></summary>
+<summary><b>Using a value that might be missing</b></summary>
 
 <table>
 <tr><th>Python</th><th>Tersa</th></tr>
@@ -668,7 +668,7 @@ error[E140] 'name' may be none, so calling
 </details>
 
 <details>
-<summary><b>▶ "Truthiness" hides a real zero</b></summary>
+<summary><b>"Truthiness" hides a real zero</b></summary>
 
 <table>
 <tr><th>Python</th><th>Tersa</th></tr>
@@ -710,7 +710,7 @@ but this is float?
 </details>
 
 <details>
-<summary><b>▶ Forgetting a new case</b></summary>
+<summary><b>Forgetting a new case</b></summary>
 
 <table>
 <tr><th>Python</th><th>Tersa</th></tr>
@@ -755,7 +755,7 @@ missing Voucher(_)
 </details>
 
 <details>
-<summary><b>▶ Calling a method and throwing away the answer</b></summary>
+<summary><b>Calling a method and throwing away the answer</b></summary>
 
 <table>
 <tr><th>Python</th><th>Tersa</th></tr>
@@ -796,7 +796,7 @@ change anything
 </details>
 
 <details>
-<summary><b>▶ Changing a shared object by accident</b></summary>
+<summary><b>Changing a shared object by accident</b></summary>
 
 <table>
 <tr><th>Python</th><th>Tersa</th></tr>
@@ -843,7 +843,7 @@ immutable, and it is the same object as
 </details>
 
 <details>
-<summary><b>▶ Bugs Tersa removes by design</b></summary>
+<summary><b>Bugs Tersa removes by design</b></summary>
 
 <br>
 
@@ -880,7 +880,7 @@ Eight programs (fizzbuzz, word frequency, shapes, bank transfers, CSV report, in
 The headline: **Tersa is fully type-checked yet shorter than untyped Python.** Type-hinted Python, the fair comparison for safety, uses 21% more tokens.
 
 <details>
-<summary><b>▶ Per-program numbers and method</b></summary>
+<summary><b>Per-program numbers and method</b></summary>
 
 <br>
 
@@ -986,7 +986,7 @@ Every rule in Tersa exists to save tokens, prevent a bug, or both.
 | Compiles to Python | | | instant access to every Python library through `extern` |
 
 <details>
-<summary><b>▶ What Tersa deliberately leaves out</b></summary>
+<summary><b>What Tersa deliberately leaves out</b></summary>
 
 <br>
 
