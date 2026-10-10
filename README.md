@@ -59,7 +59,7 @@ total area: 9.14
 | 7 | [Using Tersa with an AI model](#-using-tersa-with-an-ai-model) | The write → check → fix loop |
 | 8 | [Design decisions](#-design-decisions) | Why each rule exists |
 | 9 | [Project structure](#-project-structure) | Where everything lives in this repo |
-| 10 | [Roadmap](#-roadmap) | What's done and what's next |
+| 10 | [Roadmap](#%EF%B8%8F-roadmap) | What's done and what's next |
 
 ---
 
