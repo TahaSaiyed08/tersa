@@ -8,7 +8,8 @@
     "test": "npm run build && node --test test/*.test.mjs",
     "prepublishOnly": "npm run build && node --test test/*.test.mjs",
     "bench": "node benchmarks/tokens.mjs",
-    "bench:bugs": "node benchmarks/bugs.mjs"
+    "bench:bugs": "node benchmarks/bugs.mjs",
+    "prepare": "tsc -p ."
   },
   "keywords": [
     "programming-language",
@@ -44,6 +45,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smta08/tersa.git"
+    "url": "git+https://github.com/TahaSaiyed08/tersa.git"
+  },
+  "homepage": "https://github.com/TahaSaiyed08/tersa#readme",
+  "bugs": {
+    "url": "https://github.com/TahaSaiyed08/tersa/issues"
   }
 }

@@ -8,7 +8,7 @@ The package name `tersa` was free on npm when this was written (2026-10-09). Che
 2. From the project folder:
 
 ```
-git remote add origin https://github.com/smta08/tersa.git
+git remote add origin https://github.com/TahaSaiyed08/tersa.git
 git branch -M main
 git push -u origin main
 ```

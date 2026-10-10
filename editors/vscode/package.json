@@ -3,9 +3,9 @@
   "displayName": "Tersa",
   "description": "Syntax highlighting for the Tersa programming language",
   "version": "0.1.0",
-  "publisher": "smta08",
+  "publisher": "tahasaiyed08",
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/smta08/tersa.git" },
+  "repository": { "type": "git", "url": "https://github.com/TahaSaiyed08/tersa.git" },
   "engines": { "vscode": "^1.80.0" },
   "categories": ["Programming Languages"],
   "contributes": {

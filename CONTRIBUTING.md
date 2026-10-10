@@ -5,7 +5,7 @@ Thanks for helping! Tersa's goals, in priority order: **few tokens**, **few AI b
 ## Setup
 
 ```
-git clone https://github.com/smta08/tersa.git
+git clone https://github.com/TahaSaiyed08/tersa.git
 cd tersa
 npm install
 npm test

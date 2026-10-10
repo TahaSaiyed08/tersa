@@ -760,7 +760,7 @@ export class Checker {
     switch (s.k) {
       case "expr": {
         const t = this.expr(s.expr, scope, undefined, false);
-        this.checkDiscard(s.expr, t);
+        this.checkDiscard(s.expr, t, scope);
         return;
       }
       case "let": return this.letStmt(s, scope);
@@ -842,15 +842,16 @@ export class Checker {
   }
 
   /** Discarding a value that matters is almost always an AI bug. */
-  checkDiscard(e: A.Expr, t: Type) {
+  checkDiscard(e: A.Expr, t: Type, scope: Scope) {
     const pt = prune(t);
     if (e.k === "call" && e.resolved?.kind === "builtin") {
       const b = BUILTINS[e.resolved.builtin];
       if (b.pure && pt.k !== "unit") {
         const name = b.sig.split(/[[(]/)[0];
         const target = e.callee.k === "member" ? exprText(e.callee.obj) : undefined;
+        const tv = target && /^[a-z_][a-z0-9_]*$/i.test(target) ? scope.lookup(target) : undefined;
         this.error(e, "E141", `the result of '${name}' is discarded; ${name}() returns a new value and doesn't change anything`,
-          target && /^[a-z_][a-z0-9_]*$/i.test(target) ? `assign it: ${target} = ${exprText(e)}` : "assign the result to a variable");
+          tv?.mutable ? `assign it: ${target} = ${exprText(e)}` : `store it in a new variable: new_${target && /^[a-z_]\w*$/i.test(target) ? target : "value"} = ${exprText(e)}`);
         return;
       }
     }
